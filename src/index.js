@@ -24,7 +24,7 @@ program
 program
 	.command('search <pattern>')
 	.option('-t, --type <type>', 'anime or manga. Defaults to anime')
-	.option('-s, --status <status>', '1 / reading, 2 / completed, 3 / onhold, 4 / dropped, 6 / plantoread')
+	.option('-s, --status <status>', '1 / watching / reading, 2 / completed, 3 / onhold, 4 / dropped, 6 / plantowatch / plantoread')
 	.action(searchCommand(user));
 
 program.parse(process.argv);
