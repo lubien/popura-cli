@@ -22,7 +22,7 @@ program
 	.action(loginCommand(user, conf));
 
 program
-	.command('search <regex>')
+	.command('search <pattern>')
 	.option('-t, --type <type>', 'anime or manga. Defaults to anime')
 	.option('-s, --status <status>', '1 / reading, 2 / completed, 3 / onhold, 4 / dropped, 6 / plantoread')
 	.action(searchCommand(user));

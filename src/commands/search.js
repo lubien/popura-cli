@@ -4,10 +4,9 @@ import statusParser from '../utils/status-parser';
 const debug = require('debug')('popura-cli:search');
 
 export default function searchCommand(user) {
-	return async function searchHandler(query, {type = 'anime', status = false}) {
-		debug(`Searching ${type} matching /${query}/i`);
-
-		const matcher = new RegExp(query, 'i');
+	return async function searchHandler(pattern, {type = 'anime', status = false}) {
+		debug(`Searching ${type} matching /${pattern}/i`);
+		const matcher = new RegExp(pattern, 'i');
 
 		debug('Search for specific status:', status);
 		const statusNumber = Number(status) ?
