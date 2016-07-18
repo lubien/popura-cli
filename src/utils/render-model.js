@@ -17,7 +17,7 @@ export default function renderModel({
 		'anime' :
 		'manga';
 
-	const current = currentEpisode || currentChapter;
+	const current = currentEpisode || currentChapter || '?';
 	const total = episodes || chapters || '?';
 
 	let progressLabel = type === 'anime' ?
