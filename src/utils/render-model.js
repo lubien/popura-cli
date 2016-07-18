@@ -24,7 +24,7 @@ export default function renderModel({
 		'episode' :
 		'chapter';
 
-	if (total === '?' || current > 1) {
+	if (total === '?' || total > 1) {
 		progressLabel += 's';
 	}
 
