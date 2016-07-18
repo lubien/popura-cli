@@ -5,7 +5,7 @@ export function statusToInt(status) {
 		case 2:
 		case 3:
 		case 4:
-		case 5:
+		case 6:
 			return status;
 
 		case 'watching':
@@ -23,7 +23,7 @@ export function statusToInt(status) {
 
 		case 'plantowatch':
 		case 'plantoread':
-			return 5;
+			return 6;
 
 		default:
 			return false;
@@ -49,7 +49,7 @@ export function statusToStr(type, status) {
 		case 'dropped':
 			return 'Dropped';
 
-		case 5:
+		case 6:
 		case 'plantowatch':
 		case 'plantoread':
 			return type === 'anime' ? 'Plan to watch' : 'Plan to read';
