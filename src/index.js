@@ -4,7 +4,7 @@ import Conf from 'conf';
 import {version} from '../package.json';
 
 import loginCommand from './commands/login';
-import searchCommand from './commands/search';
+import listCommand from './commands/list';
 
 const debug = require('debug')('popura-cli:main');
 
@@ -22,10 +22,10 @@ program
 	.action(loginCommand(user, conf));
 
 program
-	.command('search <pattern>')
+	.command('list <pattern>')
 	.option('-t, --type <type>', 'anime or manga. Defaults to anime')
 	.option('-s, --status <status>', '1 / watching / reading, 2 / completed, 3 / onhold, 4 / dropped, 6 / plantowatch / plantoread')
-	.action(searchCommand(user));
+	.action(listCommand(user));
 
 program.parse(process.argv);
 
