@@ -9,10 +9,9 @@ export default function searchCommand(user) {
 
 		const matcher = new RegExp(query, 'i');
 
-		status = Number(status);
 		debug('Search for specific status:', status);
-		const statusNumber = status ?
-			status :
+		const statusNumber = Number(status) ?
+			Number(status) :
 			statusParser(type, status);
 
 		const method = type === 'anime' ?
