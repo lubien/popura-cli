@@ -1,5 +1,5 @@
 import renderModel from '../utils/render-model';
-import statusParser from '../utils/status-parser';
+import {statusToInt} from '../utils/status-parser';
 
 const debug = require('debug')('popura-cli:search');
 
@@ -9,9 +9,9 @@ export default function searchCommand(user) {
 		const matcher = new RegExp(pattern, 'i');
 
 		debug('Search for specific status:', status);
-		const statusNumber = Number(status) ?
-			Number(status) :
-			statusParser(type, status);
+		const statusNumber = isNaN(status) ?
+			statusToInt(status) :
+			Number(status);
 
 		const method = type === 'anime' ?
 			'getAnimeList' :

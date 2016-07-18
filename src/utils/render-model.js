@@ -1,5 +1,5 @@
 import {green, cyan, magenta} from 'chalk';
-import statusParser from './status-parser';
+import {statusToStr} from './status-parser';
 
 export default function renderModel({
 	series_episodes: episodes,
@@ -28,7 +28,7 @@ export default function renderModel({
 		progressLabel += 's';
 	}
 
-	const statusText = statusParser(type, status);
+	const statusText = statusToStr(type, status);
 	const progressText = current === total ?
 		`${total} ${progressLabel}` :
 		`${current} of ${total} ${progressLabel}`;
