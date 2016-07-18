@@ -1,10 +1,17 @@
 import renderModel from '../utils/render-model';
 import statusParser from '../utils/status-parser';
 
+const debug = require('debug')('popura-cli:search');
+
 export default function searchCommand(user) {
 	return async function searchHandler(query, {type = 'anime', status = false}) {
+		debug(`Searching ${type} matching /${query}/i`);
+
 		const matcher = new RegExp(query, 'i');
-		const statusNumber = typeof status === 'number' ?
+
+		status = Number(status);
+		debug('Search for specific status:', status);
+		const statusNumber = status ?
 			status :
 			statusParser(type, status);
 
