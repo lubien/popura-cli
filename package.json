@@ -31,5 +31,13 @@
     "inquirer": "^1.1.2",
     "ora": "^0.2.3",
     "popura": "^1.2.2"
-  }
+  },
+	"xo": {
+		"rules": {
+			"comma-dangle": [
+				"error",
+				"always-multiline"
+			]
+		}
+	}
 }
