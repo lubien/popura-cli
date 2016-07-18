@@ -2,6 +2,8 @@ import inquirer from 'inquirer';
 import ora from 'ora';
 import {green, red} from 'chalk';
 
+const debug = require('debug')('popura-cli:login');
+
 export default function loginCommand(conf, user) {
 	return async function loginHandler(username) {
 		const {password} = await inquirer.prompt([{
@@ -15,7 +17,9 @@ export default function loginCommand(conf, user) {
 		try {
 			user.setUser(username, password);
 
-			await user.verifyAuth();
+			const authResponse = await user.verifyAuth();
+
+			debug('Auth succeeded with', authResponse);
 
 			spinner.stop();
 

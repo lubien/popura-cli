@@ -5,7 +5,7 @@ import {version} from '../package.json';
 
 import loginCommand from './commands/login';
 
-const debug = require('debug')('popura-cli');
+const debug = require('debug')('popura-cli:main');
 
 const conf = new Conf({
 	defaults: {username: false, password: false},
