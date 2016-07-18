@@ -1,24 +1,10 @@
 import {green, cyan, magenta} from 'chalk';
-import {statusToStr} from './status-parser';
+import normalizeModel from './normalize-model';
 
-export default function renderModel({
-	series_episodes: episodes,
-	series_chapters: chapters,
-	series_animedb_id: animeId,
-	series_mangadb_id: mangaId,
-	series_title: title,
-	my_status: status,
-	my_watched_episodes: currentEpisode,
-	my_read_chapters: currentChapter,
-}) {
-	const id = animeId || mangaId;
-
-	const type = typeof episodes === 'number' ?
-		'anime' :
-		'manga';
-
-	const current = currentEpisode || currentChapter || '?';
-	const total = episodes || chapters || '?';
+export default function renderModel(model) {
+	const {
+		modelType, id, title, type, status, current, total,
+	} = normalizeModel(model);
 
 	let progressLabel = type === 'anime' ?
 		'episode' :
@@ -28,12 +14,11 @@ export default function renderModel({
 		progressLabel += 's';
 	}
 
-	const statusText = statusToStr(type, status);
-	const progressText = current === total ?
+	const progressText = current === total || modelType === 'search' ?
 		`${total} ${progressLabel}` :
 		`${current} of ${total} ${progressLabel}`;
 
 	return `[${cyan(id)}] ${green(title)}
-${magenta('Status:')} ${statusText} | ${progressText}`;
+${magenta('Status:')} ${status} | ${progressText}`;
 }
 
