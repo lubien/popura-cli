@@ -18,7 +18,7 @@ program.version(version);
 
 program
 	.command('login <username>')
-	.action(loginCommand(conf, user));
+	.action(loginCommand(user, conf));
 
 program.parse(process.argv);
 

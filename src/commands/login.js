@@ -4,7 +4,7 @@ import {green, red} from 'chalk';
 
 const debug = require('debug')('popura-cli:login');
 
-export default function loginCommand(conf, user) {
+export default function loginCommand(user, conf) {
 	return async function loginHandler(username) {
 		const {password} = await inquirer.prompt([{
 			type: 'password',
