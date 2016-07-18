@@ -1,3 +1,4 @@
+import ora from 'ora';
 import renderModel from '../utils/render-model';
 import {statusToInt} from '../utils/status-parser';
 
@@ -17,7 +18,11 @@ export default function searchCommand(user) {
 			'getAnimeList' :
 			'getMangaList';
 
+		const spinner = ora('Loading').start();
+
 		const {list} = await user[method]();
+
+		spinner.stop();
 
 		console.log(
 			list
