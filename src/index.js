@@ -6,6 +6,7 @@ import {version} from '../package.json';
 import loginCommand from './commands/login';
 import listCommand from './commands/list';
 import searchCommand from './commands/search';
+import modifyListCommand from './commands/modify-list';
 
 const debug = require('debug')('popura-cli:main');
 
@@ -32,6 +33,16 @@ program
 	.command('search <name>')
 	.option('-t, --type <type>', 'anime or manga. Defaults to anime')
 	.action(searchCommand(user));
+
+program
+	.command('add <id>')
+	.option('-t, type <type>', 'anime or manga. Defaults to anime')
+	.action(modifyListCommand(user, 'add'));
+
+program
+	.command('delete <id>')
+	.option('-t, type <type>', 'anime or manga. Defaults to anime')
+	.action(modifyListCommand(user, 'delete'));
 
 program.parse(process.argv);
 
