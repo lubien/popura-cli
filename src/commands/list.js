@@ -24,14 +24,18 @@ export default async function listCommand(pattern = false, {type = 'anime', stat
 
 	spinner.stop();
 
-	const filteredList = pattern ?
+	const filteredList = status || pattern ?
 		list
 			.filter(series => {
 				if (status && series.my_status !== statusNumber) {
 					return false;
 				}
 
-				return matcher.test(series.series_title);
+				if (pattern && !matcher.test(series.series_title)) {
+					return false;
+				}
+
+				return true;
 			}) :
 		list;
 
