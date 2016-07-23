@@ -15,6 +15,7 @@ export default function normalizeModel({
 	my_status: listStatus,
 	my_watched_episodes: listCurrentEpisode,
 	my_read_chapters: listCurrentChapter,
+	my_score: listScore,
 }) {
 	if (searchId) {
 		return {
@@ -25,6 +26,7 @@ export default function normalizeModel({
 			status: searchStatus,
 			current: 0,
 			total: searchEpisodes || searchChapters || '?',
+			score: false,
 		};
 	}
 
@@ -37,6 +39,7 @@ export default function normalizeModel({
 		status: statusToStr(type, listStatus),
 		current: listCurrentEpisode || listCurrentChapter || '?',
 		total: listEpisodes || listChapters || '?',
+		score: listScore,
 	};
 }
 

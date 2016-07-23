@@ -3,7 +3,7 @@ import {normalizeModel} from './';
 
 export default function renderModel(model) {
 	const {
-		modelType, id, title, type, status, current, total,
+		modelType, id, title, type, status, current, total, score,
 	} = normalizeModel(model);
 
 	let progressLabel = type === 'anime' ?
@@ -18,7 +18,11 @@ export default function renderModel(model) {
 		`${total} ${progressLabel}` :
 		`${current} of ${total} ${progressLabel}`;
 
+	const scoreText = modelType === 'list' ?
+		`| ${cyan('Score:')} ${score}` :
+		``;
+
 	return `[${cyan(id)}] ${green(title)}
-${magenta('Status:')} ${status} | ${progressText}`;
+${magenta('Status:')} ${status} | ${progressText} ${scoreText}`;
 }
 
