@@ -16,34 +16,27 @@ export default function normalizeModel({
 	my_watched_episodes: listCurrentEpisode,
 	my_read_chapters: listCurrentChapter,
 }) {
-	let modelType;
-	let id;
-	let title;
-	let type;
-	let status;
-	let current;
-	let total;
-
 	if (searchId) {
-		modelType = 'search';
-		id = searchId;
-		title = searchTitle;
-		type = isNaN(searchEpisodes) ? 'manga' : 'anime';
-		status = searchStatus;
-		current = 0;
-		total = searchEpisodes || searchChapters || '?';
-	} else {
-		modelType = 'list';
-		id = listAnimeId || listMangaId;
-		title = listTitle;
-		type = isNaN(listEpisodes) ? 'manga' : 'anime';
-		status = statusToStr(type, listStatus);
-		current = listCurrentEpisode || listCurrentChapter || '?';
-		total = listEpisodes || listChapters || '?';
+		return {
+			modelType: 'search',
+			id: searchId,
+			title: searchTitle,
+			type: isNaN(searchEpisodes) ? 'manga' : 'anime',
+			status: searchStatus,
+			current: 0,
+			total: searchEpisodes || searchChapters || '?',
+		};
 	}
 
+	const type = isNaN(listEpisodes) ? 'manga' : 'anime';
 	return {
-		modelType, id, title, type, status, current, total,
+		modelType: 'list',
+		id: listAnimeId || listMangaId,
+		title: listTitle,
+		type,
+		status: statusToStr(type, listStatus),
+		current: listCurrentEpisode || listCurrentChapter || '?',
+		total: listEpisodes || listChapters || '?',
 	};
 }
 
