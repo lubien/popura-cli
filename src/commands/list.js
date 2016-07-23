@@ -1,11 +1,12 @@
 import ora from 'ora';
+import {cyan} from 'chalk';
 import user from '../user';
 import {statusToInt, renderModel} from '../utils';
 
 const debug = require('debug')('popura-cli:search');
 
-export default async function listCommand(pattern, {type = 'anime', status = false}) {
-	debug(`Listing ${type} matching /${pattern}/i`);
+export default async function listCommand(pattern = false, {type = 'anime', status = false}) {
+	debug(`Listing ${type} matching ${pattern ? '/${pattern}/i' : 'everything'}`);
 	const matcher = new RegExp(pattern, 'i');
 
 	debug('List specific status:', status);
@@ -23,7 +24,7 @@ export default async function listCommand(pattern, {type = 'anime', status = fal
 
 	spinner.stop();
 
-	console.log(
+	const filteredList = pattern ?
 		list
 			.filter(series => {
 				if (status && series.my_status !== statusNumber) {
@@ -31,9 +32,15 @@ export default async function listCommand(pattern, {type = 'anime', status = fal
 				}
 
 				return matcher.test(series.series_title);
-			})
+			}) :
+		list;
+
+	console.log(
+		filteredList
 			.map(renderModel)
 			.join('\n\n')
 	);
+
+	console.log(`\n${cyan('Found:')} ${filteredList.length} results`);
 }
 

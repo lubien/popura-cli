@@ -16,7 +16,7 @@ program
 	.action(loginCommand);
 
 program
-	.command('list <pattern>')
+	.command('list [pattern]')
 	.option('-t, --type <type>', 'anime or manga. Defaults to anime')
 	.option('-s, --status <status>', '1 / watching / reading, 2 / completed, 3 / onhold, 4 / dropped, 6 / plantowatch / plantoread')
 	.action(listCommand);
