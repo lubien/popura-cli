@@ -31,7 +31,7 @@
     "debug": "^2.2.0",
     "inquirer": "^1.1.2",
     "ora": "^0.2.3",
-    "popura": "^1.2.2"
+    "popura": "^1.2.4"
   },
   "xo": {
     "esnext": true,
