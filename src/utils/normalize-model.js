@@ -1,4 +1,4 @@
-import {statusToStr} from './status-parser';
+import {statusToStr} from './';
 
 export default function normalizeModel({
 	id: searchId,

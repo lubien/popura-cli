@@ -3,10 +3,12 @@ import popura from 'popura';
 import Conf from 'conf';
 import {version} from '../package.json';
 
-import loginCommand from './commands/login';
-import listCommand from './commands/list';
-import searchCommand from './commands/search';
-import modifyListCommand from './commands/modify-list';
+import {
+	loginCommand,
+	listCommand,
+	searchCommand,
+	modifyListCommand,
+} from './commands';
 
 const debug = require('debug')('popura-cli:main');
 

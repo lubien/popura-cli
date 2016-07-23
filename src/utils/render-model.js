@@ -1,5 +1,5 @@
 import {green, cyan, magenta} from 'chalk';
-import normalizeModel from './normalize-model';
+import {normalizeModel} from './';
 
 export default function renderModel(model) {
 	const {
