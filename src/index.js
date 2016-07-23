@@ -5,7 +5,7 @@ import {
 	loginCommand,
 	listCommand,
 	searchCommand,
-	modifyListCommand,
+	modifyListCommandFactory,
 } from './commands';
 
 program.version(version);
@@ -28,12 +28,12 @@ program
 program
 	.command('add <id>')
 	.option('-t, type <type>', 'anime or manga. Defaults to anime')
-	.action(modifyListCommand('add'));
+	.action(modifyListCommandFactory('add'));
 
 program
 	.command('delete <id>')
 	.option('-t, type <type>', 'anime or manga. Defaults to anime')
-	.action(modifyListCommand('delete'));
+	.action(modifyListCommandFactory('delete'));
 
 program.parse(process.argv);
 

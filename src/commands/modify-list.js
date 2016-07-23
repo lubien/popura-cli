@@ -4,8 +4,8 @@ import user from '../user';
 
 const debug = require('debug')('popura-cli:modify-list');
 
-export default function modifyListCommand(action) {
-	return async function modifyListHandler(id, {type = 'anime'}) {
+export default function modifyListCommandFactory(action) {
+	return async function modifyListCommand(id, {type = 'anime'}) {
 		const method = `${action}${type[0].toUpperCase()}${type.slice(1)}`;
 		debug(`Modifying list with ${method} for ID ${id}`);
 
