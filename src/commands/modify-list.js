@@ -1,9 +1,10 @@
 import ora from 'ora';
 import {green, red} from 'chalk';
+import user from '../user';
 
 const debug = require('debug')('popura-cli:modify-list');
 
-export default function modifyListCommand(user, action) {
+export default function modifyListCommand(action) {
 	return async function modifyListHandler(id, {type = 'anime'}) {
 		const method = `${action}${type[0].toUpperCase()}${type.slice(1)}`;
 		debug(`Modifying list with ${method} for ID ${id}`);
