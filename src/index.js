@@ -1,3 +1,4 @@
+import 'loud-rejection/register'
 import program from 'commander';
 import {version} from '../package.json';
 
