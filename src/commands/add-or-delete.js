@@ -4,8 +4,8 @@ import user from '../user';
 
 const debug = require('debug')('popura-cli:modify-list');
 
-export default function modifyListCommandFactory(action) {
-	return async function modifyListCommand(id, {type = 'anime'}) {
+export default function addOrDeleteCommandFactory(action) {
+	return async function addOrDeleteCommand(id, {type = 'anime'}) {
 		const method = `${action}${type === 'anime' ? 'Anime' : 'Manga'}`;
 		debug(`Modifying list with ${method} for ID ${id}`);
 

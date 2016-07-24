@@ -6,7 +6,7 @@ import {
 	loginCommand,
 	listCommand,
 	searchCommand,
-	modifyListCommandFactory,
+	addOrDeleteCommandFactory,
 	updateCommand,
 } from './commands';
 
@@ -30,12 +30,12 @@ program
 program
 	.command('add <id>')
 	.option('-t, --type <type>', 'anime or manga. Defaults to anime')
-	.action(modifyListCommandFactory('add'));
+	.action(addOrDeleteCommandFactory('add'));
 
 program
 	.command('delete <id>')
 	.option('-t, --type <type>', 'anime or manga. Defaults to anime')
-	.action(modifyListCommandFactory('delete'));
+	.action(addOrDeleteCommandFactory('delete'));
 
 program
 	.command('update <who>')
