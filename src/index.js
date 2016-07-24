@@ -7,6 +7,7 @@ import {
 	listCommand,
 	searchCommand,
 	modifyListCommandFactory,
+	updateCommand,
 	scoreCommand,
 } from './commands';
 
@@ -36,6 +37,16 @@ program
 	.command('delete <id>')
 	.option('-t, type <type>', 'anime or manga. Defaults to anime')
 	.action(modifyListCommandFactory('delete'));
+
+program
+	.command('update <who>')
+	.option('-t, --type <type>', 'anime or manga. Defaults to anime')
+	.option('-s, --status <status>')
+	.option('-e, --episode <episode>')
+	.option('-c, --chapter <chapter>')
+	.option('-v, --volume <volume>')
+	.option('-r, --score <score>')
+	.action(updateCommand);
 
 program
 	.command('score <who> <score>')
