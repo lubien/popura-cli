@@ -12,34 +12,38 @@ import {
 
 program.version(version);
 
+const texts = {
+	animeOrManga: `'anime' or 'manga'. Defaults to 'anime'`,
+};
+
 program
 	.command('login <username>')
 	.action(loginCommand);
 
 program
 	.command('list [pattern]')
-	.option('-t, --type <type>', 'anime or manga. Defaults to anime')
+	.option('-t, --type <type>', texts.animeOrManga)
 	.option('-s, --status <status>', '1 / watching / reading, 2 / completed, 3 / onhold, 4 / dropped, 6 / plantowatch / plantoread')
 	.action(listCommand);
 
 program
 	.command('search <name>')
-	.option('-t, --type <type>', 'anime or manga. Defaults to anime')
+	.option('-t, --type <type>', texts.animeOrManga)
 	.action(searchCommand);
 
 program
 	.command('add <id>')
-	.option('-t, --type <type>', 'anime or manga. Defaults to anime')
+	.option('-t, --type <type>', texts.animeOrManga)
 	.action(addOrDeleteCommandFactory('add'));
 
 program
-	.command('delete <id>')
-	.option('-t, --type <type>', 'anime or manga. Defaults to anime')
+	.command('delete <pattern|id>')
+	.option('-t, --type <type>', texts.animeOrManga)
 	.action(addOrDeleteCommandFactory('delete'));
 
 program
-	.command('update <who>')
-	.option('-t, --type <type>', 'anime or manga. Defaults to anime')
+	.command('update <pattern|id>')
+	.option('-t, --type <type>', texts.animeOrManga)
 	.option('-s, --status <status>')
 	.option('-e, --episode <episode>')
 	.option('-c, --chapter <chapter>')
