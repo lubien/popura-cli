@@ -3,5 +3,4 @@ export {default as listCommand} from './list';
 export {default as searchCommand} from './search';
 export {default as modifyListCommandFactory} from './modify-list';
 export {default as updateCommand} from './update';
-export {default as scoreCommand} from './score';
 

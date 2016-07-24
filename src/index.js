@@ -8,7 +8,6 @@ import {
 	searchCommand,
 	modifyListCommandFactory,
 	updateCommand,
-	scoreCommand,
 } from './commands';
 
 program.version(version);
@@ -47,11 +46,6 @@ program
 	.option('-v, --volume <volume>')
 	.option('-r, --score <score>')
 	.action(updateCommand);
-
-program
-	.command('score <who> <score>')
-	.option('-t, type <type>', 'anime or manga. Defaults to anime')
-	.action(scoreCommand);
 
 program.parse(process.argv);
 
