@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "CLI for popura",
   "main": "lib/popura.js",
-	"bin": {
-		"popura": "./lib/popura.js"
-	},
+  "bin": {
+    "popura": "./lib/popura.js"
+  },
   "scripts": {
     "start": "babel-node src/index.js",
     "build": "babel src --out-dir lib",
@@ -28,6 +28,7 @@
     "xo": "^0.16.0"
   },
   "dependencies": {
+    "babel-polyfill": "^6.9.1",
     "chalk": "^1.1.3",
     "commander": "^2.9.0",
     "conf": "^0.11.1",
