@@ -29,12 +29,12 @@ program
 
 program
 	.command('add <id>')
-	.option('-t, type <type>', 'anime or manga. Defaults to anime')
+	.option('-t, --type <type>', 'anime or manga. Defaults to anime')
 	.action(modifyListCommandFactory('add'));
 
 program
 	.command('delete <id>')
-	.option('-t, type <type>', 'anime or manga. Defaults to anime')
+	.option('-t, --type <type>', 'anime or manga. Defaults to anime')
 	.action(modifyListCommandFactory('delete'));
 
 program
