@@ -2,7 +2,10 @@
   "name": "popura-cli",
   "version": "1.0.0",
   "description": "CLI for popura",
-  "main": "lib/index.js",
+  "main": "lib/popura.js",
+	"bin": {
+		"popura": "./lib/popura.js"
+	},
   "scripts": {
     "start": "babel-node src/index.js",
     "build": "babel src --out-dir lib",
